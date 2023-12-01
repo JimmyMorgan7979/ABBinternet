@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel='stylesheet' href='stylesheets/bootstrap.min.css'>
+        <link rel='stylesheet' href='stylesheets/style.css'>
+        <link rel='icon' type='image/png' href='images/abb-logo-square.png'>
+        <script src="/public/javascripts/bootstrap.bundle.js"></script>
+        <meta type="text/css" media="print">
+    <title>
+        ABB Louisville
+    </title>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-11 divideBar">
+                    <!-- Blank content for spacing -->
+                </div>
+                <div class="col-sm-1 divideBar">
+                    <div class="dropdown">
+                        <button class="dropbtn">GE Legacy</button>
+                        <div class="dropdown-content">
+                          <a href="http://www.global.abb/group/en">ABB Global Site</a>
+                          <a href="http://www.net.abb.com/us">ABB U.S. Site</a>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-sm-4 text-center">
+                    <img class="img img-fluid px-4" src="images/abb.png">
+                    <span class="h4">Louisville</span>
+                </div>
+                <!-- This empty row is for spacing  -->
+                <div class="col-sm-4 text-warning text-center">Possible picture?</div>
+
+                <div class="col-sm-4  text-center">
+                    Louisville Service Center <br>
+                    240 Production Court <br>
+                    Louisville, KY 40299 <br>
+                    P: (502)-493-8000<br>
+                    F: (502)-493-0326<br>
+                    <a href="mailto: US-CustomerService.Louisville@abb.com?subject=Question from Website">Email Us</a>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-sm-12 text-center">
+                    <!-- Services dropdown menu -->
+                    <div class="dropdown">
+                        <button class="dropbtnbar mx-3">Services</button>
+                        <div class="dropdown-content">
+                          <a href="/partsSpares">Parts, Spares & Consumables</a>
+                          <a href="/repairs">Repairs</a>
+                          <a href="/exchanges">Exchanges</a>
+                          <a href="/reman">Remanfactured Units</a>
+                        </div>
+                    </div> 
+                    <!-- Products dropdown menu -->
+                    <div class="dropdown">
+                        <button class="dropbtnbar mx-3">Products</button>
+                        <div class="dropdown-content">
+                          <a href="/geLegacyDrives">GE Legacy Drives</a>
+                          <a href="/ACDCDrives">AC/DC 2000</a>
+                          <a href="/innovationDrives">Innovation Drives</a>
+                          <a href="/dc300">DC300/285/100</a>
+                        </div>
+                    </div> 
+                    <!-- Contact us dropdown -->
+                    
+                    <a class="mx-2 btn" href="/contact">Contact Us</a>
+                    <a class="mx-2 btn" href="http://catalog.industrialsolutions.abb.com/ecatalog/">Board Repair (E-Catalog)</a>
+                </div>
+            </div>
+            <!-- Gray banner with page display embedded -->
+            <div class="row">
+                <div class="col-sm text-center ">
+                    <div class="text-left px-1 divideBar">
+                        <%=banner%>
+                    </div>
+                </div>
+            </div> 
+            <!-- Body content -->
+            <div>
+                <%- body %>
+            </div>
+        </div>
+    </body>
+</html>
