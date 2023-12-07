@@ -12,6 +12,9 @@ body {
 .divideBar {
   background-color:#dcdcdc;
 }
+.formBackground {
+  background-color: #7773737c;
+}
  /* Dropdown Button */
  .dropbtn {
   background-color: #dcdcdc;

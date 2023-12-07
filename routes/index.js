@@ -31,6 +31,11 @@ router.get('/reman',function(req,res,error){
   res.render('reman',{banner:'Remanfactured Units', error:false})
 })
 
+// Test and cert page
+router.get('/testCert',function(req,res,error){
+  res.render('testCert',{banner:'Test and Certify', error:false})
+})
+
 // GE legacy drives Page 
 router.get('/geLegacyDrives',function(req,res,error){
   res.render('geLegacyDrives',{banner:'GE Legacy Drives', error:false})
