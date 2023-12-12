@@ -14,7 +14,10 @@ router.get('/', function(req, res,error) {
 router.get('/contact',function(req,res,error){
   res.render('contact',{banner:'Contact Us', error:false})
 })
-
+// Contact Post page
+router.post('/addContact',function(req,res,error){
+  res.render('addContact',{banner:'',error:false})
+})
 // Parts/Spares Page 
 router.get('/partsSpares',function(req,res,error){
   res.render('partsSpares',{banner:'Parts/Spares/Consumables', error:false})
