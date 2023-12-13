@@ -9,17 +9,20 @@ var logger = require('morgan');
 var mongoose = require('mongoose')
 
 // ******** LOCAL DATABASE *********
-var mongoDB = 'mongodb://localhost:27017/website'
+var mongoDB = 'mongodb://127.0.0.1:27017/website'
 
 // ********** ATLAS DATABASE  **********
 //var mongoDB = 'mongodb+srv://UserABB-1:240ABBweb@website.xnh22b2.mongodb.net/?retryWrites=true&w=majority'
 
-mongoose.connect(mongoDB,{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(mongoDB)
+// mongoose.connect(mongoDB,{
+//   serverSelectionTimeoutMS: 5000
+// }).catch(err => console.log(err.reason));
 var db = mongoose.connection
 db.on('error', console.error.bind(console,'MongoDB connection error:'));
 
 //DeprecationWarning disable
-mongoose.set('useFindAndModify', false)
+//mongoose.set('useFindAndModify', false)
 
 //Routes
 var indexRouter = require('./routes/index');

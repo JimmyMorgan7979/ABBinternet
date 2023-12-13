@@ -5,7 +5,7 @@ var contactSchema = mongoose.Schema({
     email: String,
     message: String,
     company: String,
-    dateReceived: String
+    dateAdded: String
 })
 
 var Contact = mongoose.model("Contact", contactSchema)
