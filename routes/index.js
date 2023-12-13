@@ -3,16 +3,30 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res,error) {
-  res.render('home', {banner: 'Home',error: false});
+  res.render('home', {banner: 'Home',error: false})
 });
+// Search Results Page
+router.get('/results',function(req,res,error){
+  res.render('results', {banner: 'Results',error: false})
+})
 
 // Contact Page 
 router.get('/contact',function(req,res,error){
-  res.render('contact',{banner:'Contact Us', error:false})
+  var item =''
+  res.render('contact',{banner:'Contact Us', error:false,item})
 })
 // Contact Post page
 router.post('/addContact',function(req,res,error){
+  var item = req.body
+  console.log(item)
   res.render('addContact',{banner:'',error:false})
+})
+// add quote to db
+router.post('/addQuote',function(req,res,error){
+  var item = req.body
+  console.log(item.modelQuote)
+  console.log(item.service)
+  res.render('contact',{banner: 'Submit Quote',error:false,item})
 })
 // Parts/Spares Page 
 router.get('/partsSpares',function(req,res,error){
