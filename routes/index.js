@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+//Load DB Models
+const Contact = require('../models/Contact')
+//const Product = require('../models/Product')
+
 /* GET home page. */
 router.get('/', function(req, res,error) {
   res.render('home', {banner: 'Home',error: false})
@@ -15,19 +19,29 @@ router.get('/contact',function(req,res,error){
   var item =''
   res.render('contact',{banner:'Contact Us', error:false,item})
 })
-// Contact Post page
+
+// Contact Submit
 router.post('/addContact',function(req,res,error){
-  var item = req.body
-  console.log(item)
-  res.render('addContact',{banner:'',error:false})
+  var contactInfo = req.body
+  var today = new Date()
+  var date = today.getMonth()+1+'-'+(today.getDate())+'-'+today.getFullYear()
+  var newContact = new Contact({
+      name: contactInfo.name,
+      email: contactInfo.email,
+      company: contactInfo.company,
+      message: contactInfo.message,
+      dateAdded: date
+  })
+  newContact.save().then(Contact =>{
+    Contact === newContact;
+    res.render('addContact',{banner:'',error:false})
+  })
+  .catch
+  (function(err){
+    console.log(err)
+  })
 })
-// add quote to db
-router.post('/addQuote',function(req,res,error){
-  var item = req.body
-  console.log(item.modelQuote)
-  console.log(item.service)
-  res.render('contact',{banner: 'Submit Quote',error:false,item})
-})
+
 // Parts/Spares Page 
 router.get('/partsSpares',function(req,res,error){
   res.render('partsSpares',{banner:'Parts/Spares/Consumables', error:false})
