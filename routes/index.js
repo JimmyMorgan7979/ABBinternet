@@ -13,7 +13,12 @@ router.get('/', function(req, res,error) {
 router.get('/results',function(req,res,error){
   res.render('results', {banner: 'Results',error: false})
 })
-
+// Result to contact
+router.post('/addQuote',function(req,res,error){
+  var item = req.body
+  console.log(item.service)
+  res.render('contact',{banner: 'Submit Quote',error: false, item})
+})
 // Contact Page 
 router.get('/contact',function(req,res,error){
   var item =''
