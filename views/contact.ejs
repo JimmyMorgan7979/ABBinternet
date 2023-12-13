@@ -21,7 +21,12 @@
               <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Email Address">
             </div>
             <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3" placeholder="Message"></textarea>
+                <% if (item.service) { %>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3" placeholder="Message">I am Interested in getting a quote on a <%= item.modelQuote %> for <%= item.service %>
+                    </textarea>
+                <% } else { %>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3" placeholder="Message"></textarea>
+                    <% } %>
               </div>
             <button type="submit" class="btn btn-danger">Submit</button>
           </form>
