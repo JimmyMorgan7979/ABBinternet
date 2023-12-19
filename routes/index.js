@@ -12,8 +12,9 @@ router.get('/', function(req, res,error) {
   res.render('home', {banner: 'Home',error: false})
 });
 
+
 // Search Results Page
-router.get('/results',function(req,res,error){
+router.post('/results',function(req,res,error){
   res.render('results', {banner: 'Results',error: false})
 })
 

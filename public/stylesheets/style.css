@@ -31,6 +31,10 @@ body {
   position: relative;
   display: inline-block;
 }
+/* max image height */
+.maxImage {
+  max-height: 400px;
+}
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
