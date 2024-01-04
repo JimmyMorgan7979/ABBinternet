@@ -1,23 +1,43 @@
-.abbBold {
-  font-family: "ABBvoice_Bd";
-  src: url(/public/fonts/ABBvoice_Bd.ttf);
+@font-face {
+  font-family: "abbRegular";
+  src: url('../fonts/Web/EOT/ABBvoice_W_Rg.eot');
+  src: url('fonts/Web/WOFF/ABBvoice_W_Rg.woff') format('woff2');
+}
+@font-face {
+  font-family: "abbBold";
+  src: url('../fonts/Web/EOT/ABBvoice_W_Bd.eot');
+  src: url('fonts/Web/WOFF/ABBvoice_W_Bd.woff') format('woff2');
+}
+.footer {
+  /* height: 60px;
+  line-height: 60px; */
+  background-color:#dcdcdc;
+}
+.footer-bottom {
+  line-height:20px;
+  background-color:#c6c6c6;
 }
 body {
-  font-family: "ABBvoice_Rg";
-  src: url(/public/fonts/ABBvoice_Rg.ttf)
+  font-family: 'abbRegular';
+}
+.abbBold {
+  font-family: 'abbBold';
 }
 .roundedButton {
   border-radius: 30px;
 }
 .divideBar {
-  background-color:#dcdcdc;
+  background-color:#c6c6c6;
 }
 .formBackground {
   background-color: #7773737c;
 }
+.circleButton {
+  border-radius: 50%;
+}
  /* Dropdown Button */
  .dropbtn {
-  background-color: #dcdcdc;
+  background-color: #c6c6c6;
   border: none;
 }
 /* Dropdown Button inside the nav bar */
