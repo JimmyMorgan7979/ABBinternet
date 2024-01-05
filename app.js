@@ -1,6 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
-var expressLayouts = require('express-ejs-layouts');
+const expressEjsLayouts = require('express-ejs-layouts');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -66,7 +66,7 @@ db.all(sql,[],(err,rows) => {
 
 //Routes
 var indexRouter = require('./routes/index');
-const expressEjsLayouts = require('express-ejs-layouts');
+
 
 var app = express();
 

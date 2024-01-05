@@ -9,7 +9,7 @@ const nodemailer = require('nodemailer')
 
 /* GET home page. */
 router.get('/', function(req, res,error) {
-  res.render('home', {banner: 'Home',error: false})
+  res.render('home', {banner: 'Home'})
 });
 
 
