@@ -93,46 +93,55 @@
             <div class="row">
                 <div class="col-sm text-center ">
                     <div class="text-left px-1 divideBar">
-                        <%=banner%>
+                        <%= banner %>
                     </div>
                 </div>
             </div> 
-            <!-- Body content -->
+<!-- Body content -->
             <div>
                 <%- body %>
             </div>
         </div>
     </body>
-    <!-- Sticky Footer -->
-    <div class="row footer justify-content-center mt-5">
-        <div class="col-4 bg-success">
+<!-- Footer -->
+    <div class="row footer justify-content-center mt-5 py-2">
+        <div class="col-md-4">
             <div>
-                <p class="abbBold">ABB Louisville</p>
-                <p>The only Factory authorized Serivce Center for GE Legacy Drives and Controls </p>
-            </div>
-            
+                <p class="abbBold"><strong>ABB Louisville</strong></p>
+                <p><small>The only Factory authorized Serivce Center for GE Legacy Drives and Controls</small></p>
+            </div>        
         </div>
-        <div class="col-2 bg-warning">
+        <div class="col-md-2">
             <div>
-                <p class="abbBold">Contact</p>
+                <p class="abbBold"><strong>Contact</strong></p>
                 <address><small>
                     Louisville, KY 40299 <br>
                     P: (502)-493-8000<br>
                     F: (502)-493-0326<br>
                     US-CustomerService.Louisville@abb.com
                 </small></address>
-            </div>
-            
+            </div>        
         </div>
-        <div class="col-2 bg-primary">
+        <div class="col-md-2">
             <div>
-                <p class="abbBold">Follow Us</p>
-                linkedin
-                abb motion and generators
-                Facebook
-                x
-            </div>
-            
+                <p class="abbBold"><strong>Follow Us</strong></p>
+                <div class="row">
+                    <div class="col-auto">
+                        <img src="images/socialLogo/linkedin-logo-transparent.png" class="img-fluid circleButton p-0">
+                    </div>
+                    <div class="col-auto">
+                        <img src="images/socialLogo/facebook-logo-transparent.png" class="img-fluid circleButton p-0">
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-auto">
+                        <img src="images/socialLogo/twitter-logo-transparent.png" class="img-fluid circleButton">
+                    </div>
+                    <div class="col-auto">
+                        <a href="https://www.youtube.com/watch?v=_eI7tZonQLU" target="_blank"> <img src="images/socialLogo/youtube-logo-transparent.png" class="img-fluid circleButton"></a>
+                    </div>
+                </div>
+            </div>   
         </div>
     </div>  
     <div class="row footer-bottom">
@@ -140,5 +149,4 @@
             <small>@2024 Copyright ABBLouisville.com</small>
         </div>
     </div> 
-
 </html>

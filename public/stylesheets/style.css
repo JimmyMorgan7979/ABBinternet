@@ -11,7 +11,8 @@
 .footer {
   /* height: 60px;
   line-height: 60px; */
-  background-color:#dcdcdc;
+  /* background-color:#dcdcdc; */
+  background-color:#eeeeee;
 }
 .footer-bottom {
   line-height:20px;
@@ -34,6 +35,7 @@ body {
 }
 .circleButton {
   border-radius: 50%;
+  height: 80%;
 }
  /* Dropdown Button */
  .dropbtn {
