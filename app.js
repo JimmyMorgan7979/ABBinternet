@@ -21,7 +21,7 @@ const db = new sqlite3.Database("./test.db", sqlite3.OPEN_READWRITE,(err)=>{
 
 //insert date into table
 //  sql = 'INSERT INTO models(model_number,description,photo) VALUES (?,?,?)'
-// db.run(sql,["ds200dcfb","power supply","dcfb.jpeg"],(err)=>{
+// db.run(sql,["ds200dcfbg1","power supply","dcfb.jpeg"],(err)=>{
 //   if (err) return console.error(err.message);
 // })
 
@@ -32,13 +32,21 @@ const db = new sqlite3.Database("./test.db", sqlite3.OPEN_READWRITE,(err)=>{
 // })
 
 //query the data
-sql = 'SELECT * FROM models'
-db.all(sql,[],(err,rows) => {
-  if (err) return console.error(err.message);
-  rows.forEach(row=>{
-    console.log(row)
-  })
-})
+// sql = 'SELECT * FROM models'
+// db.all(sql,[],(err,rows) => {
+//   if (err) return console.error(err.message);
+//   rows.forEach(row=>{
+//     console.log(row)
+//   })
+// })
+
+// sql = 'SELECT * FROM models WHERE model_number like "%ds200dcfb%" LIMIT 1'
+// db.all(sql,[],(err,rows) => {
+//   if (err) return console.error(err.message);
+//   rows.forEach(row=>{
+//     console.log(row)
+//   })
+// })
 
 
 
