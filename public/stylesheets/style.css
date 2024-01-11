@@ -76,6 +76,13 @@ body {
   display: block;
 }
 
+.buttonDisable {
+  background-color:rgba(201, 201, 201, 0.507);
+  cursor:not-allowed;
+  pointer-events: none;
+  border-color:white;
+}
+
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd;}
 

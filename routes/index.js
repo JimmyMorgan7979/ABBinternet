@@ -1,33 +1,64 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
 const nodemailer = require('nodemailer')
 
 //Load DB Models
 //const Contact = require('../models/Contact')
-//const Product = require('../models/Product')
+const db = require('../models/db')
 
 /* GET home page. */
-router.get('/', function(req, res,error) {
-  res.render('home', {banner: 'Home',error: false})
+router.get('/',(req, res,error)=>{
+  res.render('home', {banner: 'Home'})
 });
 
 
+
+
+
+
+//Search result Selection Page    ******* need an IF STATEMENT IF DOCS IS EMPTY TO RETURN A PAGE THAT SAYS NO RESULTS********
+router.post('/searchSelection',(req,res,error)=>{
+  
+//query the data
+sql = 'SELECT * FROM models WHERE model_number like "%ds200dcfb%" LIMIT 10'
+db.all(sql,[],(err,rows) => {
+  if (err) return console.error(err.message);
+  rows.forEach(row=>{
+    console.log(row)
+  })
+})
+
+  let docs = {model_number:"Test Number", description:"Test Description"}
+  res.render('searchSelection',{banner:"Select Model", docs})
+})
+
+
+
+
+
+
+
+
+
+
+
+
 // Search Results Page
-router.post('/results',function(req,res,error){
+router.post('/results',(req,res,error)=>{
   res.render('results', {banner: 'Results',error: false})
 })
 
 // Result to contact
-router.post('/addQuote',function(req,res,error){
-  var item = req.body
+router.post('/addQuote',(req,res,error)=>{
+  let item = req.body
   console.log(item.service)
   res.render('contact',{banner: 'Submit Quote',error: false, item})
 })
 
 // Contact Page 
-router.get('/contact',function(req,res,error){
-  var item =''
+router.get('/contact',(req,res,error)=>{
+  let item =''
   res.render('contact',{banner:'Contact Us', error:false,item})
 })
 
@@ -64,7 +95,7 @@ router.post('/addContact', (req, res, error) => {
   // setup email data with unicode symbols
   let mailOptions = {
       from: '"Nodemailer Contact" <louisville-website@outlook.com>', // sender address
-      to: 'thetvdoctor66@gmail.com', // list of receivers
+      to: ['thetvdoctor66@gmail.com'], // list of receivers
       cc: 'thetvdoctor66@hotmail.com', // list of receivers
       subject: 'Service Request', // Subject line
       text: 'I need information about ABB in Louisville.', // plain text body
@@ -84,48 +115,52 @@ router.post('/addContact', (req, res, error) => {
   })
 
 // Parts/Spares Page 
-router.get('/partsSpares',function(req,res,error){
+router.get('/partsSpares',(req,res,error)=>{
   res.render('partsSpares',{banner:'Parts/Spares/Consumables', error:false})
 })
 
 // Repair Page 
-router.get('/repairs',function(req,res,error){
+router.get('/repairs',(req,res,error)=>{
   res.render('repairs',{banner:'Repairs', error:false})
 })
 
 // Exchanges Page 
-router.get('/Exchanges',function(req,res,error){
+router.get('/Exchanges',(req,res,error)=>{
   res.render('exchanges',{banner:'Exchanges', error:false})
 })
 
 // Reman Page 
-router.get('/reman',function(req,res,error){
+router.get('/reman',(req,res,error)=>{
   res.render('reman',{banner:'Remanfactured Units', error:false})
 })
 
 // Test and cert page
-router.get('/testCert',function(req,res,error){
+router.get('/testCert',(req,res,error)=>{
   res.render('testCert',{banner:'Test and Certify', error:false})
 })
 
 // GE legacy drives Page 
-router.get('/geLegacyDrives',function(req,res,error){
+router.get('/geLegacyDrives',(req,res,error)=>{
   res.render('geLegacyDrives',{banner:'GE Legacy Drives', error:false})
 })
 
 // AC/DC Drives Page 
-router.get('/ACDCDrives',function(req,res,error){
+router.get('/ACDCDrives',(req,res,error)=>{
   res.render('acdcDrives',{banner:'AC/DC Drives', error:false})
 })
 
 // AC/DC Drives Page 
-router.get('/innovationDrives',function(req,res,error){
+router.get('/innovationDrives',(req,res,error)=>{
   res.render('innovationDrives',{banner:'GE Innovation Drives', error:false})
 })
 
 // DC300 Drives Page 
-router.get('/dc300',function(req,res,error){
+router.get('/dc300',(req,res,error)=>{
   res.render('dc300',{banner:'GE DC300/285/100 Drives', error:false})
 })
 
+//Turbine control page
+router.get('/turbineControl',(req,res,error) => {
+  res.render('turbineControl.ejs', {banner:"Turbine Control"})
+})
 module.exports = router;
