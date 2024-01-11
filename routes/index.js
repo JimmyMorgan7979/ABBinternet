@@ -21,20 +21,47 @@ router.get('/',(req, res,error)=>{
 router.post('/searchSelection',(req,res,error)=>{
   
 //query the data
-sql = 'SELECT * FROM models WHERE model_number like "%ds200dcfb%" LIMIT 10'
-db.all(sql,[],(err,rows) => {
+var searchWord = req.body.searchWord
+// if nothing is searched render searchSelection page with a message to user 
+if(!searchWord){
+  console.log("none")
+  res.render('home',{banner:"Home"})
+}
+sql = `SELECT * FROM models WHERE model_number like "%${searchWord}%" LIMIT 10`
+db.all(sql,[],(err,docs) => {
+  
   if (err) return console.error(err.message);
-  rows.forEach(row=>{
-    console.log(row)
+    docs.forEach(doc=>{
+     console.log(doc)
   })
+   console.log(`these are the ${docs[0].model_number}`)
+  res.render('searchSelection',{banner:"Select Model", searchWord,docs})
+})        
 })
 
-  let docs = {model_number:"Test Number", description:"Test Description"}
-  res.render('searchSelection',{banner:"Select Model", docs})
-})
+//TEST
+// router.post('/searchSelection',(req,res,error)=>{
+// let searchWord = req.body.searchWord
+// if(!searchWord){
+//   console.log('no search word')
+//   res.render('home', {banner:"Home"})
+// }
+
+// sql = `SELECT * FROM models WHERE model_number like "%${searchWord}%" LIMIT 10`
+// let data = []
+//   db.all(sql,(err,docs)=>{
+    
+//     data = ({model_number: docs.model_number, description: docs.description, photo: docs.photo})
+   
+//     })
+
+//     console.log(data)
+//     res.render('searchSelection',{banner:"Select Model", searchWord,data})
 
 
+// })
 
+//TEST
 
 
 
