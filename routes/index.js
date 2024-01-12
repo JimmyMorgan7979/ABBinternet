@@ -1,10 +1,8 @@
 let express = require('express');
 let router = express.Router();
-
 const nodemailer = require('nodemailer')
 
 //Load DB Models
-//const Contact = require('../models/Contact')
 const db = require('../models/db')
 
 /* GET home page. */
@@ -21,8 +19,6 @@ router.post('/searchSelection', function(req,res) {
     sql = `SELECT * FROM models WHERE model_number like "%${searchWord}%" LIMIT 10`
     db.all(sql,[],(err,docs) => {
        if (err) return console.error(err.message);
-         
-          console.log(docs.id)
         res.render('searchSelection',{banner:"Select Model", searchWord,docs})
       })
    }
@@ -31,9 +27,7 @@ router.post('/searchSelection', function(req,res) {
 // Search Results Page
 router.post('/results',(req,res,error)=>{
   var idSearch = req.body.id
-  console.log(idSearch)
   sql = `SELECT * FROM models WHERE id = "${idSearch}"`
-  console.log(sql)
   db.all(sql,[],(err,docs) => {
     if (err) return console.error(err.message);
     res.render('results', {banner: 'Results', docs, error: false})
@@ -44,8 +38,6 @@ router.post('/results',(req,res,error)=>{
 // Result to contact
 router.post('/addQuote',(req,res,error)=>{
   let item = req.body
-  console.log(item.service)
-  console.log(item.model_number)
   res.render('contact',{banner: 'Submit Quote',error: false, item})
 })
 
@@ -55,10 +47,6 @@ router.get('/contact',(req,res,error)=>{
   res.render('contact',{banner:'Contact Us', error:false,item})
 })
 
-//testroute
-router.get('/test',(req,res)=>{
-  res.render('addContact',{banner: "Quote Submitted by Email"})
-})
 // Contact Submit
 router.post('/addContact', (req, res, error) => {
   const output = `
@@ -102,8 +90,8 @@ router.post('/addContact', (req, res, error) => {
       if (error) {
           return console.log(error)
       }
-      console.log('Message sent: %s', info.messageId) 
-      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
+      // console.log('Message sent: %s', info.messageId) 
+      // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
 
       res.render('addContact',{banner:'Email has been sent', error: false})
   })
