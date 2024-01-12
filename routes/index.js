@@ -12,74 +12,40 @@ router.get('/',(req, res,error)=>{
   res.render('home', {banner: 'Home'})
 });
 
-
-
-
-
-
-//Search result Selection Page    ******* need an IF STATEMENT IF DOCS IS EMPTY TO RETURN A PAGE THAT SAYS NO RESULTS********
-router.post('/searchSelection',(req,res,error)=>{
-  
-//query the data
-var searchWord = req.body.searchWord
-// if nothing is searched render searchSelection page with a message to user 
-if(!searchWord){
-  console.log("none")
-  res.render('home',{banner:"Home"})
-}
-sql = `SELECT * FROM models WHERE model_number like "%${searchWord}%" LIMIT 10`
-db.all(sql,[],(err,docs) => {
-  
-  if (err) return console.error(err.message);
-    docs.forEach(doc=>{
-     console.log(doc)
+// Initial Search Results
+router.post('/searchSelection', function(req,res) {
+  var searchWord = req.body.searchWord;
+   if(!searchWord){
+      res.render('home',{banner: 'Home'});
+   }else{
+    sql = `SELECT * FROM models WHERE model_number like "%${searchWord}%" LIMIT 10`
+    db.all(sql,[],(err,docs) => {
+       if (err) return console.error(err.message);
+         
+          console.log(docs.id)
+        res.render('searchSelection',{banner:"Select Model", searchWord,docs})
+      })
+   }
   })
-   console.log(`these are the ${docs[0].model_number}`)
-  res.render('searchSelection',{banner:"Select Model", searchWord,docs})
-})        
-})
-
-//TEST
-// router.post('/searchSelection',(req,res,error)=>{
-// let searchWord = req.body.searchWord
-// if(!searchWord){
-//   console.log('no search word')
-//   res.render('home', {banner:"Home"})
-// }
-
-// sql = `SELECT * FROM models WHERE model_number like "%${searchWord}%" LIMIT 10`
-// let data = []
-//   db.all(sql,(err,docs)=>{
-    
-//     data = ({model_number: docs.model_number, description: docs.description, photo: docs.photo})
-   
-//     })
-
-//     console.log(data)
-//     res.render('searchSelection',{banner:"Select Model", searchWord,data})
-
-
-// })
-
-//TEST
-
-
-
-
-
-
-
-
 
 // Search Results Page
 router.post('/results',(req,res,error)=>{
-  res.render('results', {banner: 'Results',error: false})
+  var idSearch = req.body.id
+  console.log(idSearch)
+  sql = `SELECT * FROM models WHERE id = "${idSearch}"`
+  console.log(sql)
+  db.all(sql,[],(err,docs) => {
+    if (err) return console.error(err.message);
+    res.render('results', {banner: 'Results', docs, error: false})
+   })
+  
 })
 
 // Result to contact
 router.post('/addQuote',(req,res,error)=>{
   let item = req.body
   console.log(item.service)
+  console.log(item.model_number)
   res.render('contact',{banner: 'Submit Quote',error: false, item})
 })
 
@@ -89,9 +55,12 @@ router.get('/contact',(req,res,error)=>{
   res.render('contact',{banner:'Contact Us', error:false,item})
 })
 
+//testroute
+router.get('/test',(req,res)=>{
+  res.render('addContact',{banner: "Quote Submitted by Email"})
+})
 // Contact Submit
 router.post('/addContact', (req, res, error) => {
-  console.log(req.body)
   const output = `
     <p>You have a new service request</p>
     <h3>Contact Details</h3>
@@ -104,7 +73,6 @@ router.post('/addContact', (req, res, error) => {
     <h3>Message</h3>
     <p>${req.body.message}</p>
   `
-
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp-mail.outlook.com',

@@ -30,6 +30,17 @@ body {
 .divideBar {
   background-color:#c6c6c6;
 }
+.searchSelectionBg {
+  /* background-color: #e2e0e0; */
+  background-color: #ebebeb;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.searchSelectionButton {
+  /* background-color: #ff5561; */
+  background-color: #b3fa71;
+}
 .formBackground {
   background-color: #7773737c;
 }

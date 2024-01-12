@@ -12,20 +12,22 @@
 <div class="row justify-content-center py-3">
     <div class="col-sm-4">
         <div class="row-sm-12">
-            <img src="images/cards/dcfb.JPG" class="img-fluid maxImage">
+            <!-- <img src="images/cards/dcfb.JPG" class="img-fluid maxImage"> -->
+            <img src="images/cards/<%=docs[0].photo%>" class="img-fluid maxImage">
         </div>
     </div>
     <div class="col-sm-4">
-        <span class="h3 border-bottom border-danger">Model Number</span>
-        <p class="pt-3 h5">Description of Item goes here</p>
+        <span class="h3 border-bottom border-danger"><%= docs[0].model_number.toUpperCase() %></span>
+        <p class="pt-3 h5"><%= docs[0].description %></p>
         <form action="/addquote" method="POST" class="py-3">
             
             <div>
                 <div class="pb-1"><strong>Repair Offerings</strong></div>
+                <input type="hidden" name = "model_number" value = "<%= docs[0].model_number.toUpperCase() %>">
                 <select onchange="enableButton()" class="form-select form-select-sm" aria-label="Small select example" name="service" id="option">
                     <option selected value="default">(Select Repair Option)</option>
-                    <option value="repair">Repair and Return</option>
-                    <option value="reman"  name="reman">Remanufactured</option>
+                    <option value="Repair and Return">Repair and Return</option>
+                    <option value="Remanufactured"  name="reman">Remanufactured</option>
                     <option value="Exchange" name="exchange">Exchange</option>
                 </select>
             </div>
