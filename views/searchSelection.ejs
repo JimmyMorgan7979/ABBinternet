@@ -1,6 +1,7 @@
 <div class="row justify-content-center pt-5">
     <div class="col-8 border-bottom border-danger h2">
-        Search Results
+        <div class="abbDash"></div>
+        <p>Search Results</p>
     </div>
 </div>
 
@@ -21,12 +22,13 @@
 
 <!-- Results go here -->
 
+<!-- ************************* possibly make this a table************************************* -->
 <% docs.forEach(function(doc) { %>
     <div class="row justify-content-center pt-3">
         <div class="col-2 py-2 searchSelectionBg">
             <form action="/results" method='POST'> 
                 <input type="hidden" name = "id" value = "<%=doc.id %>">
-                <button type='submit' class="btn searchSelectionButton p-2"><%= doc.model_number.toUpperCase() %></button>
+                <button type='submit' class="btn searchSelectionButton px-5 p-2"><%= doc.model_number.toUpperCase() %></button>
             </form>
         </div>
         <div class="col-5 py-3 searchSelectionBg">
