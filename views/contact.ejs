@@ -9,28 +9,33 @@
     <div class="col-sm-8 text-center border-top border-danger h2 py-3">Let's talk about your repair needs</div>
 </div>
 <!-- row3 Contact form and Address etc -->
-<div class="row justify-content-center">
+<div class="row justify-content-center py-2">
 <!-- left column -->
     <div class="col-sm-4 formBackground">
         <form action="/addContact" method="POST" class="py-4 text-center">
-            <div class="mb-3">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+            <div class="mb-3 text-left">
+                <label class="font-weight-bold" for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="* Required" required>
             </div>
-            <div class="mb-3">
-                <input type="text" class="form-control" id="company" name="company" placeholder="Company" required>
+            <div class="mb-3 text-left">
+                <label class="font-weight-bold" for="company">Company</label>
+                <input type="text" class="form-control" id="company" name="company" placeholder="* Required" required>
             </div>
-            <div class="mb-3">
-                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Email Address" required>
+            <div class="mb-3 text-left">
+                <label class="font-weight-bold" for="email">Email Address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="* Required" required>
             </div>
-            <div class="mb-3">
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+            <div class="mb-3 text-left">
+                <label class="font-weight-bold" class="font-weight-bold" for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 text-left">
+                <label class="font-weight-bold" for="message">Message</label>
                 <% if (item.service) { %>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3" placeholder="Message">I am Interested in getting a quote on a <%= item.model_number %> for <%= item.service %>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3">I am Interested in getting a quote on a <%= item.model_number %> for <%= item.service %>
                     </textarea>
                 <% } else { %>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3" placeholder="Message"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
                     <% } %>
               </div>
             <button type="submit" class="btn abbRed text-white">Submit</button>

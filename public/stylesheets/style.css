@@ -23,6 +23,10 @@ html {
   background-color:#c6c6c6;
 }
 
+.partNumberItem:hover{
+  background-color: #ffd100;
+}
+
 .abbDash {
   content: "&#0151";
   background-color: #ff000f;
@@ -50,7 +54,7 @@ html {
   background-color: #ffd100;
 }
 .formBackground {
-  background-color: #7773737c;
+  background-color: #d2d2d2;
 }
 .circleButton {
   border-radius: 50%;

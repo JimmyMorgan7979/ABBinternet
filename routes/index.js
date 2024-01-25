@@ -78,8 +78,8 @@ router.post('/addContact', (req, res, error) => {
   // setup email data with unicode symbols
   let mailOptions = {
       from: '"Nodemailer Contact" <louisville-website@outlook.com>', // sender address
-      to: ['thetvdoctor66@gmail.com'], // list of receivers
-      cc: 'thetvdoctor66@hotmail.com', // list of receivers
+      to: 'us-customerService.louisville@abb.com', // list of receivers
+      cc: 'mark.perkinson@us.abb.com, roger.johnson@us.abb.com, jill.hardin@us.abb.com', // list of receivers
       subject: 'Service Request', // Subject line
       text: 'I need information about ABB in Louisville.', // plain text body
       html: output // html body
