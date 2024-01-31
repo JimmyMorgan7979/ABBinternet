@@ -1,44 +1,18 @@
 <div class="row justify-content-center pt-5">
     <div class="col-8 border-bottom border-danger h2">
         <div class="abbDash"></div>
-        <p>Search Results</p>
+        <p>Search Results for:   "<%= searchWord %>"</p>
     </div>
 </div>
 
-<div class="row justify-content-center py-3">
+<!-- <div class="row justify-content-center py-3">
     <div class="col-8 h3">
         Search Results For: <%= searchWord %>
     </div>
-</div>
-
-<!-- <div class="row justify-content-center pt-3 h3">
-    <div class="col-2">
-        Part Number
-    </div>
-    <div class="col-5">
-        Description
-    </div>
 </div> -->
 
-<!-- Results go here -->
-
-<!-- ************************* possibly make this a table************************************* -->
-<!-- <% docs.forEach(function(doc) { %>
-    <div class="row justify-content-center pt-3">
-        <div class="col-2 py-2 searchSelectionBg">
-            <form action="/results" method='POST'> 
-                <input type="hidden" name = "id" value = "<%=doc.id %>">
-                <button type='submit' class="btn searchSelectionButton px-5 p-2"><%= doc.model_number.toUpperCase() %></button>
-            </form>
-        </div>
-        <div class="col-5 py-3 searchSelectionBg">
-            <%= doc.description %>
-        </div>  
-    </div>
-<% }); %> -->
-
-<!-- test table -->
-<div class="row justify-content-center pt-2">
+<!-- results table -->
+<div class="row justify-content-center pt-4">
     <div class="col-7">
         <table class="table table-striped">
             <thead class=" h4 abbDivideDark">

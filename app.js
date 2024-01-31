@@ -10,9 +10,9 @@ var bodyParser = require('body-parser')
 const sqlite3 = require('sqlite3').verbose();
 
 //connect to DB
-const db = new sqlite3.Database("./test.db", sqlite3.OPEN_READWRITE,(err)=>{
-  if (err) return console.error(err.message);
-})
+// const db = new sqlite3.Database("./models.db", sqlite3.OPEN_READWRITE,(err)=>{
+//   if (err) return console.error(err.message);
+// })
 
 //Routes
 var indexRouter = require('./routes/index');
